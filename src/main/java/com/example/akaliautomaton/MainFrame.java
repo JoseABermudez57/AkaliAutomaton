@@ -40,7 +40,7 @@ public class MainFrame extends Application {
             String message;
             String formattedCases = "";
             StringBuilder concatenatedCases = new StringBuilder();
-            ValidationResult validate = new Automaton().validateLoopExpression(entry);
+            ValidationResult validate = new Automaton().validateVariableExpression(entry);
             List<String> listCases = validate.getCases();
 
             if (validate.isValid()) {

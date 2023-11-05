@@ -1,9 +1,7 @@
 package com.example.akaliautomaton;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Automaton {
     private String state;
@@ -63,7 +61,7 @@ public class Automaton {
             }
         }
 
-        boolean isValid = state.equals("final");
+        boolean isValid = state.equals("final") || state.equals("equals");
         return new ValidationResult(isValid, states);
     }
 
