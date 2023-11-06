@@ -17,7 +17,7 @@ public class MainFrame extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        Label lbEntry = new Label("Ingresa la cadena a evaluar");
+        Label lbEntry = new Label("Ingresa variable");
         tfEntry = new TextField();
 
         Button btnCheck = getButton();

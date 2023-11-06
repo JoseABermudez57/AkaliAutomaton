@@ -1,16 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.akaliautomaton.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #00894B;" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <Button layoutX="38.0" layoutY="72.0" mnemonicParsing="false" style="-fx-background-color: #220070;" text="Variables" textAlignment="CENTER" textFill="#ff9dab">
+         <font>
+            <Font name="Calibri Bold" size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="217.0" layoutY="7.0" text="Akali" textAlignment="CENTER" textFill="#dfbd00">
+         <font>
+            <Font name="Arial Bold" size="50.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="58.0" fitWidth="52.0" layoutX="344.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/kunai.png" />
+         </image>
+      </ImageView>
+      <TextArea layoutX="38.0" layoutY="200.0" prefHeight="114.0" prefWidth="523.0" style="-fx-background-color: #000000;">
+         <font>
+            <Font name="Calibri Bold" size="16.0" />
+         </font>
+      </TextArea>
+      <Label layoutX="268.0" layoutY="343.0" style="-fx-background-color: #36614C;" text="Resultado" textFill="#781206">
+         <font>
+            <Font name="Calibri Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Button layoutX="496.0" layoutY="163.0" mnemonicParsing="false" style="-fx-background-color: #ffffff;" text="Validar" textAlignment="CENTER" textFill="#005e2f">
+         <font>
+            <Font name="Calibri Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="190.0" layoutY="72.0" mnemonicParsing="false" style="-fx-background-color: #220070;" text="Condicional" textAlignment="CENTER" textFill="#ff9dab">
+         <font>
+            <Font name="Calibri Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="346.0" layoutY="72.0" mnemonicParsing="false" style="-fx-background-color: #220070;" text="Ciclo" textAlignment="CENTER" textFill="#ff9dab">
+         <font>
+            <Font name="Calibri Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="482.0" layoutY="72.0" mnemonicParsing="false" style="-fx-background-color: #220070;" text="Funciones" textAlignment="CENTER" textFill="#ff9dab">
+         <font>
+            <Font name="Calibri Bold" size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="38.0" layoutY="145.0" style="-fx-background-color: #36614C;" text="Estructura" textFill="WHITE">
+         <font>
+            <Font name="Calibri Bold Italic" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
