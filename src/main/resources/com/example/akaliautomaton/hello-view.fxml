@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #00894B;" xmlns="http://javafx.com/javafx/8">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #00894B;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.akaliautomaton.MainFrame">
    <children>
-      <Button layoutX="38.0" layoutY="72.0" mnemonicParsing="false" style="-fx-background-color: #220070;" text="Variables" textAlignment="CENTER" textFill="#ff9dab">
+      <Button fx:id="variables" layoutX="38.0" layoutY="72.0" mnemonicParsing="false" onAction="#grammarTypeValidate" style="-fx-background-color: #220070;" text="Variables" textAlignment="CENTER" textFill="#ff9dab">
          <font>
             <Font name="Calibri Bold" size="15.0" />
          </font>
@@ -22,37 +23,37 @@
             <Image url="@assets/kunai.png" />
          </image>
       </ImageView>
-      <TextArea layoutX="38.0" layoutY="200.0" prefHeight="114.0" prefWidth="523.0" style="-fx-background-color: #000000;">
+      <TextArea fx:id="code" layoutX="39.0" layoutY="220.0" prefHeight="114.0" prefWidth="523.0" style="-fx-background-color: #000000;">
          <font>
             <Font name="Calibri Bold" size="16.0" />
          </font>
       </TextArea>
-      <Label layoutX="268.0" layoutY="343.0" style="-fx-background-color: #36614C;" text="Resultado" textFill="#781206">
+      <Label fx:id="result" layoutX="38.0" layoutY="352.0" prefHeight="28.0" prefWidth="433.0" style="-fx-background-color: #36614C;" textFill="#d71500">
          <font>
             <Font name="Calibri Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Button layoutX="496.0" layoutY="163.0" mnemonicParsing="false" style="-fx-background-color: #ffffff;" text="Validar" textAlignment="CENTER" textFill="#005e2f">
+      <Button fx:id="validate" layoutX="496.0" layoutY="352.0" mnemonicParsing="false" onAction="#grammarTypeValidate" style="-fx-background-color: #ffffff;" text="Validar" textAlignment="CENTER" textFill="#005e2f">
          <font>
             <Font name="Calibri Bold" size="15.0" />
          </font>
       </Button>
-      <Button layoutX="190.0" layoutY="72.0" mnemonicParsing="false" style="-fx-background-color: #220070;" text="Condicional" textAlignment="CENTER" textFill="#ff9dab">
+      <Button fx:id="conditional" layoutX="190.0" layoutY="72.0" mnemonicParsing="false" onAction="#grammarTypeValidate" style="-fx-background-color: #220070;" text="Condicional" textAlignment="CENTER" textFill="#ff9dab">
          <font>
             <Font name="Calibri Bold" size="15.0" />
          </font>
       </Button>
-      <Button layoutX="346.0" layoutY="72.0" mnemonicParsing="false" style="-fx-background-color: #220070;" text="Ciclo" textAlignment="CENTER" textFill="#ff9dab">
+      <Button fx:id="loop" layoutX="346.0" layoutY="72.0" mnemonicParsing="false" onAction="#grammarTypeValidate" style="-fx-background-color: #220070;" text="Ciclo" textAlignment="CENTER" textFill="#ff9dab">
          <font>
             <Font name="Calibri Bold" size="15.0" />
          </font>
       </Button>
-      <Button layoutX="482.0" layoutY="72.0" mnemonicParsing="false" style="-fx-background-color: #220070;" text="Funciones" textAlignment="CENTER" textFill="#ff9dab">
+      <Button fx:id="functions" layoutX="482.0" layoutY="72.0" mnemonicParsing="false" onAction="#grammarTypeValidate" style="-fx-background-color: #220070;" text="Funciones" textAlignment="CENTER" textFill="#ff9dab">
          <font>
             <Font name="Calibri Bold" size="15.0" />
          </font>
       </Button>
-      <Label layoutX="38.0" layoutY="145.0" style="-fx-background-color: #36614C;" text="Estructura" textFill="WHITE">
+      <Label fx:id="structure" alignment="CENTER" contentDisplay="CENTER" layoutX="16.0" layoutY="107.0" prefHeight="106.0" prefWidth="563.0" style="-fx-background-color: #36614C;" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Calibri Bold Italic" size="15.0" />
          </font>

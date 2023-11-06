@@ -1,40 +1,60 @@
 package com.example.akaliautomaton;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Automaton {
-    private String state;
+    private static String state;
+
     private String type;
 
-    public ValidationResult validateVariableExpression(String text) {
-        String[] elements = text.split("\\s+");
+    public ValidationResult validateLanguage (String code, String type) {
+        String[] codeArray = code.split("\\s+");
+        ValidationResult validationResult = null;
+        switch (type) {
+            case "functions" -> {
+                validationResult = validateFunctionExpression(codeArray);
+            }
+            case "loop" -> {
+                validationResult = validateLoopExpression(codeArray);
+            }
+            case "conditional" -> {
+                validationResult = validateConditionalExpression(codeArray);
+            }
+            case "variables" -> {
+                validationResult = validateVariableExpression(codeArray);
+            }
+        }
+        return validationResult;
+    }
+
+
+    public ValidationResult validateVariableExpression(String[] codeArray) {
+//        String[] elements = text.split("\\s+");
         List<String> states = new ArrayList<>();
         state = "q0";
-
-        for (String element : elements) {
+        for (String element : codeArray) {
             states.add(state);
             switch (state) {
-                case "q0":
+                case "q0" -> {
                     if (element.matches("Ent|Cdn|Bool|Dcm|Cad")) {
                         type = element;
                         state = "variable";
                     }
-                    break;
-                case "variable":
+                }
+                case "variable" -> {
                     if (element.matches("[a-zA-Z0-9]+")) {
                         state = "equals";
                     }
-                    break;
-                case "equals":
-                    if (element.equals("=")) {
+                }
+                case "equals" -> {
+                    if (element.matches("=")) {
                         state = "value";
                     }
                     if (element.isEmpty()) {
                         state = "final";
                     }
-                    break;
-                case "value":
+                }
+                case "value" -> {
                     switch (type) {
                         case "Ent" -> {
                             if (element.matches("-?\\d+")) {
@@ -47,7 +67,7 @@ public class Automaton {
                             }
                         }
                         case "Cdn" -> {
-                            if (element.matches("[a-zA-Z0-9]+")) {
+                            if (element.matches("'[a-zA-Z0-9]+'")) {
                                 state = "final";
                             }
                         }
@@ -57,20 +77,18 @@ public class Automaton {
                             }
                         }
                     }
-                    break;
+                }
             }
         }
-
         boolean isValid = state.equals("final") || state.equals("equals");
         return new ValidationResult(isValid, states);
     }
 
-    public ValidationResult validateConditionalExpression(String text){
-        String[] elements = text.split("\\s+");
+    public ValidationResult validateConditionalExpression(String[] codeArray){
+//        String[] elements = text.split("\\s+");
         List<String> states = new ArrayList<>();
         state = "q0";
-
-        for (String element: elements){
+        for (String element: codeArray){
             states.add(state);
             switch (state) {
                 case "q0" -> {
@@ -120,17 +138,15 @@ public class Automaton {
                 }
             }
         }
-
         boolean isValid = state.equals("final");
         return new ValidationResult(isValid, states);
     }
 
-    public ValidationResult validateLoopExpression(String text) {
-        String[] elements = text.split("\\s+");
+    public static ValidationResult validateLoopExpression(String[] codeArray) {
+//        String[] elements = text.split("\\s+");
         List<String> states = new ArrayList<>();
         state = "q0";
-
-        for (String element: elements){
+        for (String element: codeArray){
             states.add(state);
             switch (state) {
                 case "q0" -> {
@@ -190,18 +206,16 @@ public class Automaton {
                 }
             }
         }
-
         boolean isValid = state.equals("final");
         return new ValidationResult(isValid, states);
     }
 
-    public ValidationResult validateFunctionExpression(String text){
-        String[] elements = text.split("\\s+");
+    public ValidationResult validateFunctionExpression(String[] codeArray){
+//        String[] elements = text.split("\\s+");
         List<String> states = new ArrayList<>();
         state = "q0";
-        Boolean pass = true;
-
-        for (String element: elements){
+        boolean pass = true;
+        for (String element: codeArray){
             if (!element.matches("Ent|Cdn|Bool|Dcm|Cad") && pass) {
                 state = "functionName";
                 pass = false;
